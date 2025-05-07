@@ -11,10 +11,10 @@ class MyArticlesPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('مقالاتي'),
+        title: const Text('My Articles'),
       ),
       body: myArticles.isEmpty
-          ? const Center(child: Text('لا توجد مقالات مضافة بعد.'))
+          ? const Center(child: Text('Don\'t have any articles yet!'))
           : ListView.builder(
               itemCount: myArticles.length,
               itemBuilder: (context, index) {
@@ -37,7 +37,7 @@ class MyArticlesPage extends StatelessWidget {
                             .deleteArticle(article.id!);
 
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('تم حذف المقالة')),
+                          const SnackBar(content: Text('Article deleted!')),
                         );
                       },
                     ),

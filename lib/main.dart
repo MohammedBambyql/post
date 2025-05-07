@@ -58,7 +58,6 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> _pages = [
     const HomePage(),
     const FavoritesPage(),
-    // بإمكانك مستقبلاً تضيف: AddArticlePage(), MyArticlesPage()
   ];
 
   @override

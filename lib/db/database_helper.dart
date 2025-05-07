@@ -6,9 +6,7 @@ class DatabaseHelper {
   static final DatabaseHelper _instance = DatabaseHelper._internal();
   static Database? _database;
 
-  // اسم جدول المفضلة
   static const String _favoritesTable = 'favorites';
-  // اسم جدول مقالات المستخدم
   static const String _userArticlesTable = 'user_articles';
 
   factory DatabaseHelper() => _instance;
@@ -33,7 +31,6 @@ class DatabaseHelper {
   }
 
   Future<void> _onCreate(Database db, int version) async {
-    // إنشاء جدول المفضلة
     await db.execute('''
       CREATE TABLE $_favoritesTable (
         id INTEGER PRIMARY KEY,
@@ -42,7 +39,6 @@ class DatabaseHelper {
       )
     ''');
 
-    // إنشاء جدول مقالات المستخدم
     await db.execute('''
       CREATE TABLE $_userArticlesTable (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -52,7 +48,6 @@ class DatabaseHelper {
     ''');
   }
 
-  // ========== عمليات المفضلة ==========
   Future<void> insertFavorite(Article article) async {
     final db = await database;
     await db.insert(
@@ -95,7 +90,6 @@ class DatabaseHelper {
     return result.isNotEmpty;
   }
 
-  // ========== عمليات مقالات المستخدم ==========
   Future<void> insertUserArticle(Article article) async {
     final db = await database;
     await db.insert(
